@@ -1,0 +1,67 @@
+.school
+    %h2= name
+    .subsection
+        %h3 Enrolments
+        .block
+            %b Capacity:
+            %span= (base + relocatables)
+            - if (base + relocatables < attendGov){
+            %span.alert.alert-warning Warning: insufficient capacity
+            - }
+            %ul 
+                %li 
+                    %span= base 
+                    base 
+                %li 
+                    %span= relocatables
+                    relocatables
+        .block 
+            %b Locality
+            300 local, 180 non-local
+        .block
+            .btn-group{role:"group", 'data-toggle': 'buttons'}
+                %a.btn.btn-secondary{ href:"#"} Total
+                %a.btn.btn-secondary{ href:"#" } By location
+                %a.btn.btn-secondary{ href:"#" } By status
+
+            %table.table
+                    %tr
+                        %th Year level
+                        %th.current 2017
+                        %th 2018
+                        %th 2019
+                        %th 2020
+                        %th 2021
+                :each year in enrolments
+                    %tr
+                        %td= 'Year ' + year.year
+                        %td.current= (year.students)
+                        %td= (year.students+5)
+                        %td= (year.students+10)
+                        %td= (year.students+16)
+                        %td= (year.students+17)
+    .subsection
+        %h3 Neighbourhood Demand
+        .block
+            %b School-aged population:
+            %span= (attendGov + attendNonGov)
+            %ul
+                %li
+                    %span= attendGov + ' government'
+                %li
+                    %span= attendNonGov + ' non-government'
+        .block
+            .btn-group{role:"group", 'data-toggle': 'buttons'}
+                %a#dnb-total.btn.btn-secondary{href:'#'} Total
+                %a.btn.btn-secondary{href:'#'} By school
+                %a.btn.btn-secondary{href:'#'} By status
+            %table.table
+                %tr
+                    %th Year level
+                    %th Any government school
+                    %th Non-government school
+                :each year in demand
+                    %tr
+                        %td= 'Year ' + year.year
+                        %td= year.attendGov
+                        %td= year.attendNonGov
