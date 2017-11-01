@@ -5,9 +5,9 @@
         .block
             %b Capacity:
             %span= (base + relocatables)
-            - if (base + relocatables < attendGov){
-            %span.alert.alert-warning Warning: insufficient capacity
-            - }
+            :if (base + relocatables < attendGov)
+                %span.alert.alert-warning Warning: insufficient capacity
+            
             %ul 
                 %li 
                     %span= base 
