@@ -5,15 +5,11 @@
         .block
             %b Capacity:
             %span= (base + relocatables)
-            :if (base + relocatables < attendGov)
-                %span.alert.alert-warning Warning: insufficient capacity
-            %ul 
-                %li 
-                    %span= base 
-                    base 
-                %li 
-                    %span= relocatables
-                    relocatables
+            (
+            %span= base 
+            base + 
+            %span= relocatables
+            relocatables)
         .block 
             %b Locality
             300 local, 180 non-local
@@ -25,22 +21,7 @@
                 %a.btn.btn-secondary{ href:"#" } By travel zone
 
 
-            %table.table
-                    %tr
-                        %th Year level
-                        %th.current 2017
-                        %th 2018
-                        %th 2019
-                        %th 2020
-                        %th 2021
-                :each year in enrolments
-                    %tr
-                        %td= 'Year ' + year.year
-                        %td.current= (year.students)
-                        %td= (year.students+5)
-                        %td= (year.students+10)
-                        %td= (year.students+16)
-                        %td= (year.students+17)
+            
     .subsection
         %h3 Demographic Demand Forecasts
         .block
