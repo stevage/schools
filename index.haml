@@ -59,9 +59,16 @@
             %table.table
                 %tr
                     %th Year level
-                    %th Any government school
-                    %th Non-government school
+                    %th 2017
+                    %th 2018
+                    %th 2022
+                    %th 2027
+                    %th 2037
                 :each year in demand
                     %tr
-                        %td= 'Year ' + year.year
-                        %td= year.attendGov
+                        %td= year.year
+                        %td= (year.attendGov + 0)
+                        %td= (year.attendGov +10)
+                        %td= (year.attendGov + 33)
+                        %td= (year.attendGov +44 )
+                        %td= (year.attendGov + 71)
