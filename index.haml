@@ -1,7 +1,7 @@
 .school
     %h2= name
     .subsection
-        %h3 Enrolments
+        %h3 Students
         .block
             %b Capacity:
             %span= (base + relocatables)
@@ -20,8 +20,10 @@
         .block
             .btn-group{role:"group", 'data-toggle': 'buttons'}
                 %a.btn.btn-secondary{ href:"#"} Total
-                %a.btn.btn-secondary{ href:"#" } By location
+                %a.btn.btn-secondary{ href:"#" } By catchment
                 %a.btn.btn-secondary{ href:"#" } By status
+                %a.btn.btn-secondary{ href:"#" } By travel zone
+
 
             %table.table
                     %tr
@@ -40,7 +42,7 @@
                         %td= (year.students+16)
                         %td= (year.students+17)
     .subsection
-        %h3 Neighbourhood Demand
+        %h3 Demographic Demand Forecasts
         .block
             %b School-aged population:
             %span= (attendGov + attendNonGov)
